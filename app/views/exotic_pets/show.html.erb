@@ -9,6 +9,12 @@
     </div>
   </div>
 
+<ul>
+  <li><%= @exotic_pet.name %></li>
+  <li><%= @exotic_pet.age %></li>
+  <li><%= @exotic_pet.description %></li>
+  <li><%= cl_image_tag @exotic_pet.image_url %></li>
+</ul>
   <div class="details-section">
     <h2><%= @exotic_pet.name.upcase %></h2>
     <p class="rating">★★★★★</p>
