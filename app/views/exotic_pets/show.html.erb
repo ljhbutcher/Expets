@@ -16,8 +16,9 @@
       <%= @exotic_pet.description %>
     </p>
     <p class="age">Age: <%= @exotic_pet.age %> years</p>
-    <button class="book-button">BOOK</button>
+    <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-button" %>
   </div>
+
 
   <div class="reviews-section">
     <h3>REVIEWS</h3>

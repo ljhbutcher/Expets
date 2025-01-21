@@ -1,21 +1,27 @@
 class BookingsController < ApplicationController
+  before_action :set_exotic_pet, only: [:new, :create]
 
-  def index
-    @bookings = Booking.new
+  def new
+    @booking = Booking.new
   end
 
   def create
-    @exotic_pets = ExoticPets.find(params[:id])
-    @bookings = Booking.new(booking_params)
-    @booking.exotic_pets = @exotic_pets
+    @booking = Booking.new(booking_params)
+    @booking.exotic_pet = @exotic_pet
+    @booking.user = current_user
+
     if @booking.save
-      redirect_to bookings_path(@exotic_pets)
+      redirect_to exotic_pet_path(@exotic_pet)
     end
   end
 
   private
 
+  def set_exotic_pet
+    @exotic_pet = ExoticPet.find(params[:exotic_pet_id])
+  end
+
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :exotic_pet_id)
+    params.require(:booking).permit(:start_date, :end_date, :event_details, :contact_email, :contact_phone)
   end
 end
