@@ -39,7 +39,7 @@ pet1 = ExoticPet.create!(
   name: 'Hamster',
   age: 3,
   description: 'A wild hamster with majestic stripes.',
-  image_url: 'https://plus.unsplash.com/premium_photo-1695410374501-43ba3c8ebca4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aGFtc3RlcnxlbnwwfHwwfHx8MA%3D%3D',
+  image_url: 'pcdcn97x7wnknxex6wxm',
   user: user1
 )
 
@@ -47,7 +47,7 @@ pet2 = ExoticPet.create!(
   name: 'Parrot',
   age: 2,
   description: 'A colorful parrot with vibrant feathers.',
-  image_url: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFycm90fGVufDB8fDB8fHww',
+  image_url: 'menkdsp6fwagupqfzuot',
   user: user2
 )
 
@@ -55,7 +55,8 @@ pet3 = ExoticPet.create!(
   name: 'Hedgehog',
   age: 5,
   description: 'A playful hedgehog with a long, bushy tail.',
-  image_url: 'https://images.unsplash.com/photo-1669400945108-675229c1b70d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhlZGdlaG9nc3xlbnwwfHwwfHx8MA%3D%3D',
+  image_url: 'jsxm0xcgfngboqlrjhpv
+',
   user: user3
 )
 
@@ -63,7 +64,7 @@ pet4 = ExoticPet.create!(
   name: 'Chameleon',
   age: 4,
   description: 'A chameleon that can change its colors.',
-  image_url: 'https://plus.unsplash.com/premium_photo-1687773506111-615a26684e1f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2hhbWVsZW9uJ3xlbnwwfHwwfHx8MA%3D%3D',
+  image_url: 'bxagytxbidlqqsnxm8s5',
   user: user4
 )
 
@@ -71,7 +72,7 @@ pet5 = ExoticPet.create!(
   name: 'Iguana',
   age: 2,
   description: 'A majestic iguana to keep you company.',
-  image_url: 'https://images.unsplash.com/photo-1542313337-c6a6ffb1ac12?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWd1YW5hfGVufDB8fDB8fHww',
+  image_url: 'jsxm0xcgfngboqlrjhpv',
   user: user5
 )
 

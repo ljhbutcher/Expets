@@ -16,4 +16,10 @@ class ExoticPetsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def exotic_pet_params
+    params.require(:article).permit(:name,  :age, :description, :image_url, :photo)
+  end
 end
