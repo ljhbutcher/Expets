@@ -17,11 +17,11 @@
           <li class="nav-item">
             <%= link_to "All Pets", "/exotic_pets", class: "nav-link" %>
           </li>
-          <li class="nav-item d-flex align-items-center" id="button">
+          <li class="nav-item d-flex align-items-center btn btn-alert" id="button">
             <%= button_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://avatars.githubusercontent.com/u/187302196?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           </li>
         <% else %>
           <li class="nav-item">
