@@ -5,28 +5,33 @@ ExoticPet.destroy_all
 
 # Create users
 user1 = User.create!(
-  username: 'amina_smith',
-  email: 'amina@mail.com',
-  password: 'password111'
-
+  username: 'liam',
+  email: 'liam@mail.com',
+  password: 'password'
 )
 
 user2 = User.create!(
-  username: 'saul_james',
-  email: 'saul@mail.com',
-  password: 'password222'
+  username: 'edward',
+  email: 'edward@mail.com',
+  password: 'password'
 )
 
 user3 = User.create!(
-  username: 'abdul_kimbo',
-  email: 'abdul@example.com',
-  password: 'password333'
+  username: 'marcel',
+  email: 'marcel@mail.com',
+  password: 'password'
 )
 
 user4 = User.create!(
-  username: 'eddy_the_eagle',
-  email: 'eddy@yahuu.com',
-  password: 'password444'
+  username: 'melany',
+  email: 'melany@mail.com',
+  password: 'password'
+)
+
+user5 = User.create!(
+  username: 'sapana',
+  email: 'sapana@mail.com',
+  password: 'password'
 )
 
 # Create exotic pets
@@ -60,6 +65,14 @@ pet4 = ExoticPet.create!(
   description: 'A chameleon that can change its colors.',
   image_url: 'https://plus.unsplash.com/premium_photo-1687773506111-615a26684e1f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2hhbWVsZW9uJ3xlbnwwfHwwfHx8MA%3D%3D',
   user: user4
+)
+
+pet5 = ExoticPet.create!(
+  name: 'Iguana',
+  age: 2,
+  description: 'A majestic iguana to keep you company.',
+  image_url: 'https://images.unsplash.com/photo-1542313337-c6a6ffb1ac12?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWd1YW5hfGVufDB8fDB8fHww',
+  user: user5
 )
 
 puts "Creating users ..."
