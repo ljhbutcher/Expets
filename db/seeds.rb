@@ -67,7 +67,7 @@ pet4 = ExoticPet.create!(
   user: user4
 )
 
-pet4 = ExoticPet.create!(
+pet5 = ExoticPet.create!(
   name: 'Iguana',
   age: 2,
   description: 'A majestic iguana to keep you company.',
