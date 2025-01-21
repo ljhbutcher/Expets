@@ -8,7 +8,6 @@ user1 = User.create!(
   username: 'amina_smith',
   email: 'amina@mail.com',
   password: 'password111'
-
 )
 
 user2 = User.create!(
