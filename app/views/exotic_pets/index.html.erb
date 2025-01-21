@@ -1,9 +1,12 @@
 <h1>List of Exotic Pets</h1>
 
-<ul>
-  <% @exotic_pets.each do |exotic_pet| %>
-  <li>
-    <%= link_to exotic_pet.name, exotic_pet_path(exotic_pet) %>
-  </li>
-  <% end %>
-</ul>
+ <div class="cards" >
+    <% @exotic_pets.each do |exotic_pet| %>
+      <%= link_to exotic_pet_path(exotic_pet) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path exotic_pet.image_url %>')">
+        <h2> <%= exotic_pet.name %></h2>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
