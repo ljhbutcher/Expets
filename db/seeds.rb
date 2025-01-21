@@ -6,22 +6,27 @@ ExoticPet.destroy_all
 # Create users
 user1 = User.create!(
   username: 'amina_smith',
-  email: 'amina@mail.com'
+  email: 'amina@mail.com',
+  password: 'password111'
+
 )
 
 user2 = User.create!(
   username: 'saul_james',
-  email: 'saul@mail.com'
+  email: 'saul@mail.com',
+  password: 'password222'
 )
 
 user3 = User.create!(
   username: 'abdul_kimbo',
-  email: 'abdul@example.com'
+  email: 'abdul@example.com',
+  password: 'password333'
 )
 
 user4 = User.create!(
   username: 'eddy_the_eagle',
-  email: 'eddy@yahuu.com'
+  email: 'eddy@yahuu.com',
+  password: 'password444'
 )
 
 # Create exotic pets
