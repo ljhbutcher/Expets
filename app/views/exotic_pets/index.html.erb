@@ -1,12 +1,20 @@
 <h1>List of Exotic Pets</h1>
 
- <div class="cards" >
-    <% @exotic_pets.each do |exotic_pet| %>
+<div class="cards">
+  <% @exotic_pets.each do |exotic_pet| %>
+    <div class="card-trip">
       <%= link_to exotic_pet_path(exotic_pet) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path exotic_pet.image_url %>')">
-        <h2> <%= exotic_pet.name %></h2>
-        </div>
       <% end %>
-    <% end %>
-  </div>
+
+      <%= image_tag exotic_pet.image_url %>
+
+      <div class="card-trip-infos">
+        <div class= "card-recipe-description">
+          <h2><%= exotic_pet.name %></h2>
+          <p><%= exotic_pet.description %></p>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
 </div>
