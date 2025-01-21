@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://static.vecteezy.com/system/resources/previews/007/922/997/non_2x/colorful-chameleon-logo-design-illustration-free-vector.jpg" %>
@@ -15,7 +15,7 @@
             <%= link_to "My Bookings", "/bookings", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "All Pets", "/pets", class: "nav-link" %>
+            <%= link_to "All Pets", "/exotic_pets", class: "nav-link" %>
           </li>
           <li class="nav-item d-flex align-items-center" id="button">
             <%= button_to "Log out", destroy_user_session_path, method: :delete %>
@@ -25,10 +25,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "All Pets", "/pets", class: "nav-link" %>
+            <%= link_to "All Pets", "/exotic_pets", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Login", "users/sign_in", class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Sign Up", "/users/sign_up", class: "nav-link" %>

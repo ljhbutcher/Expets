@@ -1,8 +1,9 @@
 <h1>List of Exotic Pets</h1>
 
 <ul>
-  <%= @exotic_pets.each do |pet| %>
-  <li><%= link_to exotic_pet_path(exotic_pet) %>
+  <% @exotic_pets.each do |exotic_pet| %>
+  <li>
+    <%= link_to exotic_pet.name, exotic_pet_path(exotic_pet) %>
   </li>
   <% end %>
 </ul>

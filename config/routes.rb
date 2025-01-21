@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  get '/signup', to: 'users#new', as: :signup
-  post '/signup', to: 'users#create'
-  get '/login', to: 'sessions#new', as: :login
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy', as: :logout
+  # get '/signup', to: 'users#new', as: :signup
+  # post '/signup', to: 'users#create'
+  # get '/login', to: 'sessions#new', as: :login
+  # post '/login', to: 'sessions#create'
+  # delete '/logout', to: 'sessions#destroy', as: :logout
 
   resources :exotic_pets, only: [:index, :show, :new, :create ] do
     resources :bookings, only: [:new, :create]
