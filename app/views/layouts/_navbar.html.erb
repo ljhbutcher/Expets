@@ -1,0 +1,40 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://static.vecteezy.com/system/resources/previews/007/922/997/non_2x/colorful-chameleon-logo-design-illustration-free-vector.jpg" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "My Bookings", "/bookings", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "All Pets", "/pets", class: "nav-link" %>
+          </li>
+          <li class="nav-item d-flex align-items-center" id="button">
+            <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "All Pets", "/pets", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", "users/sign_in", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", "/users/sign_up", class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
