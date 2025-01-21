@@ -74,4 +74,4 @@ group :test do
 end
 
 gem 'devise'
-gem "dotenv-rails"
+gem 'cloudinary', '~> 1.25.0'
