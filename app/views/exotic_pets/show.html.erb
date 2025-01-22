@@ -1,11 +1,11 @@
 <div class="container">
   <!--<div class="image-section">
     <div class="main-image">
-      <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %>" />
+      <%= image_tag @exotic_pet.image_url, alt: @exotic_pet.name %>
     </div>
     <div class="additional-images">
-      <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %> Image 1" />
-      <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %> Image 2" />
+      <%= image_tag @exotic_pet.image_url, alt: "#{@exotic_pet.name} Image 1" %>
+      <%= image_tag @exotic_pet.image_url, alt: "#{@exotic_pet.name} Image 2" %>
     </div>
   </div>-->
   <h3><%= @exotic_pet.name.upcase %></h3>
@@ -19,11 +19,11 @@
       <%= @exotic_pet.description %>
     </p>
     <p class="age">Age: <%= @exotic_pet.age %> years</p>
-    <button class="book-button">BOOK</button>
+    <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-button" %>
   </div>
 
   <div class="reviews-section">
     <h3>REVIEWS</h3>
-    <p>Customer reviews</p>
+    <p>Customer reviews will go here.</p>
   </div>
 </div> 
