@@ -1,10 +1,14 @@
 .cards {
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
- 
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.container {
+  margin: auto;
 }
 
 .card-category {
@@ -23,14 +27,14 @@
 }
 
 .card-trip {
-  width: 300px;
-  margin: 50px;
+  // width: 500px;
+  // margin: 50px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-.card-trip > img {
-  height: 200px;
+.card-trip-img {
+  height: 250px;
   width: 100%;
   object-fit: cover;
 }
