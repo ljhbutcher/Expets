@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_exotic_pet, only: [:new, :create]
 
+  def index
+    @bookings = Booking.all
+  end
+
   def new
     @booking = Booking.new
   end
@@ -11,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to exotic_pet_path(@exotic_pet)
+      redirect_to bookings_path(@exotic_pet)
     end
   end
 
