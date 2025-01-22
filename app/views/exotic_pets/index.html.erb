@@ -4,9 +4,13 @@
   <% @exotic_pets.each do |exotic_pet| %>
     <div class="card-trip">
       <%= link_to exotic_pet_path(exotic_pet) do %>
+      <h6><%= exotic_pet.name %></h6>
+       <%= cl_image_tag exotic_pet.photo.key,width: 400, height: 400 %>
+
+
+        </div>
       <% end %>
 
-      <%= image_tag exotic_pet.image_url %>
 
       <div class="card-trip-infos">
         <div class= "card-recipe-description">
