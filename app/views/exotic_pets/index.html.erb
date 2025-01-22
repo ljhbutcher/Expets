@@ -1,24 +1,20 @@
-<h1>List of Exotic Pets</h1>
 
-<div class="cards">
-  <% @exotic_pets.each do |exotic_pet| %>
-    <div class="card-trip">
-      <%= link_to exotic_pet_path(exotic_pet) do %>
-      <h6><%= exotic_pet.name %></h6>
-       <%= cl_image_tag exotic_pet.photo.key,width: 400, height: 400 %>
+<div class="container">
+  <h1>List of Exotic Pets</h1>
+  <div class="cards">
+    <% @exotic_pets.each do |exotic_pet| %>
+      <div class="card-trip">
+        <%= link_to exotic_pet_path(exotic_pet) do %>
+        <%= cl_image_tag exotic_pet.photo.key, class: "card-trip-img"%>
+        <% end %>
 
-
-        </div>
-      <% end %>
-
-
-      <div class="card-trip-infos">
-        <div class= "card-recipe-description">
-          <h2><%= exotic_pet.name %></h2>
-          <p><%= exotic_pet.description %></p>
+        <div class="card-trip-infos">
+          <div class= "card-recipe-description">
+            <h2><%= exotic_pet.name %></h2>
+            <p><%= exotic_pet.description %></p>
+          </div>
         </div>
       </div>
-    </div>
-
-  <% end %>
+    <% end %>
+  </div>
 </div>
