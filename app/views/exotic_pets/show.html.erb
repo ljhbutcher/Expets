@@ -1,29 +1,41 @@
+
+
+<%# LIAMS NEW DESING BELOW %>
 <div class="container">
-  <!--<div class="image-section">
-    <div class="main-image">
-      <%= image_tag @exotic_pet.image_url, alt: @exotic_pet.name %>
-    </div>
-    <div class="additional-images">
-      <%= image_tag @exotic_pet.image_url, alt: "#{@exotic_pet.name} Image 1" %>
-      <%= image_tag @exotic_pet.image_url, alt: "#{@exotic_pet.name} Image 2" %>
-    </div>
-  </div>-->
-  <h3><%= @exotic_pet.name.upcase %></h3>
+  <div class="column">
+    <body>
+      <main>
+        <section class="image-gallery">
+          <%= cl_image_tag(@exotic_pet.photo.key) %>
+          <br>
+          <%= cl_image_tag(@exotic_pet.photo.key) %>
+          <br>
+          <%= cl_image_tag(@exotic_pet.photo.key) %>
+        </section>
+      </div>
 
-  <%= cl_image_tag(@exotic_pet.photo.key,width: 400, height: 400) %>
+      <div class="column">
+        <header>
+          <h1><%= @exotic_pet.name.upcase %></h1>
+          <span class="rating">★★★★★</span>
+        </header>
 
-  <div class="details-section">
+        <section class="description">
+          <p><%= @exotic_pet.description %></p>
+          <p class="age">Age: <%= @exotic_pet.age %> years</p>
+          <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
+        </section>
 
-    <p class="rating">★★★★★</p>
-    <p class="description">
-      <%= @exotic_pet.description %>
-    </p>
-    <p class="age">Age: <%= @exotic_pet.age %> years</p>
-    <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-button" %>
-  </div>
-
-  <div class="reviews-section">
-    <h3>REVIEWS</h3>
-    <p>Customer reviews will go here.</p>
-  </div>
-</div> 
+        <section class="reviews">
+          <h2>Reviews</h2>
+          <div class="review">
+            <p>⭐⭐⭐⭐ - Liam said "Excellent service!"</p>
+          </div>
+          <div class="review">
+            <p>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</p>
+          </div>
+        </section>
+      </div>
+      </main>
+  </body>
+</div>
