@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="image-section">
+  <!--<div class="image-section">
     <div class="main-image">
       <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %>" />
     </div>
@@ -7,16 +7,13 @@
       <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %> Image 1" />
       <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %> Image 2" />
     </div>
-  </div>
+  </div>-->
+  <h3><%= @exotic_pet.name.upcase %></h3>
 
-<ul>
-  <li><%= @exotic_pet.name %></li>
-  <li><%= @exotic_pet.age %></li>
-  <li><%= @exotic_pet.description %></li>
-  <li><%= cl_image_tag @exotic_pet.image_url %></li>
-</ul>
+  <%= cl_image_tag(@exotic_pet.photo.key,width: 400, height: 400) %>
+
   <div class="details-section">
-    <h2><%= @exotic_pet.name.upcase %></h2>
+
     <p class="rating">★★★★★</p>
     <p class="description">
       <%= @exotic_pet.description %>
@@ -29,4 +26,4 @@
     <h3>REVIEWS</h3>
     <p>Customer reviews</p>
   </div>
-</div>
+</div> 
