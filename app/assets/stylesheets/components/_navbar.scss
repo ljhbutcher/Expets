@@ -1,17 +1,101 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.l-header {
+  position: absolute;
+  font-size: 1.3rem;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  padding: 10px 0;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 60px;
-}
+  &__brand {
+    display: flex;
+    align-items: center;
+    font-family: 'GT Walsheim Condensed Medium', sans-serif;
 
-.nav-item {
-  font-size: 30px;
-  color: black;
+    .l-header__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      transition: letter-spacing 0.3s, text-shadow 0.3s;
+
+      &:hover {
+        letter-spacing: 1px;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      }
+
+      .l-header__logo {
+        height: 70px;
+        margin-right: 5px;
+      }
+
+      .l-header__title {
+        white-space: nowrap;
+        overflow: visible;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    .l-header__ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'GT Walsheim Condensed Regular', sans-serif;
+
+      li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        a,
+        .btn {
+          text-decoration: none;
+          color: inherit;
+          transition: text-shadow 0.3s;
+          font-size: 1.3rem;
+
+          &:hover {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid white;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+      margin-left: 7px;
+      margin-top: 3px;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
 }

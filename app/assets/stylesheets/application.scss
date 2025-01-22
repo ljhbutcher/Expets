@@ -10,3 +10,20 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+
+@font-face {
+  font-family: 'GT Walsheim Condensed Medium';
+  src: url('/assets/GT-Walsheim-Condensed-Medium-Trial.otf') format('opentype'); // Correct relative path
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Condensed Regular';
+  src: url('/assets/GT-Walsheim-Condensed-Regular-Trial.otf') format('opentype'); // Correct relative path
+  font-weight: normal;
+  font-style: normal;
+}
