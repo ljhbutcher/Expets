@@ -1,32 +1,42 @@
 <div class="container">
-  <h2>Book <%= @exotic_pet.name %></h2>
+   <div class="row justify-content-center">
+      <div class="col-md-6">
+         <h2>Book: <%= @exotic_pet.name %></h2>
+         <%= simple_form_for [@exotic_pet, @booking] do |f| %>
+            <!--<div class="form-group">
+               <%= f.input :start_date, as: :date, label: "Start Date" %>
+            </div>-->
 
-  <%= form_with model: [@exotic_pet, @booking], local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :start_date, "Start of Rental" %>
-      <%= f.datetime_select :start_date, class: "form-control" %>
-    </div>
+            <div class="form-group">
+               <%= f.input :start_date,
+                           as: :string,
+                           input_html: { data: { controller: "datepicker" },
+                           placeholder: "📅 Select start date"  },
+                           label: "Start Date" %>
+            </div>
+            <div class="form-group">
+               <%= f.input :end_date,
+                           as: :string,
+                           input_html: { data: { controller: "datepicker" },
+                           placeholder: "📅 Select end date"  },
+                           label: "End Date" %>
+            </div>
 
-    <div class="form-group">
-      <%= f.label :end_date, "End of Rental" %>
-      <%= f.datetime_select :end_date, class: "form-control" %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :event_details, "Event Details" %>
-      <%= f.text_area :event_details, class: "form-control" %>
-    </div>
+            <div class="form-group">
+               <%= f.input :event_details, as: :text, label: "Event Details" %>
+            </div>
 
-    <div class="form-group">
-      <%= f.label :contact_email, "📧 Contact Email" %>
-      <%= f.email_field :contact_email, class: "form-control" %>
-    </div>
+            <div class="form-group">
+               <%= f.input :contact_email, as: :email, label: "📧 Contact Email" %>
+            </div>
 
-    <div class="form-group">
-      <%= f.label :contact_phone, "📞 Contact Phone" %>
-      <%= f.telephone_field :contact_phone, class: "form-control" %>
-    </div>
+            <div class="form-group">
+               <%= f.input :contact_phone, as: :tel, label: "📞 Contact Phone" %>
+            </div>
 
-    <%= f.submit "Submit Booking", class: "btn btn-primary" %>
-  <% end %>
+            <%= f.button :submit, "Submit Booking", class: "btn btn-primary" %>
+         <% end %>
+      </div>
+   </div>
 </div>
