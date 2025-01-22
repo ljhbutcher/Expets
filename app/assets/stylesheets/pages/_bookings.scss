@@ -1,11 +1,25 @@
+.header {
+  margin: 25px;
+  text-align: center;
+}
+
 .individual-booking {
   background-color: whitesmoke;
   margin: 30px;
   border: 2px solid black;
   padding: 10px;
   display: flex;
+  text-align: left;
 }
 
 .pet-info{
   border-right: 2px solid black;
+}
+
+.booking-info {
+ padding: 25px 10px;
+}
+
+.booking-img {
+  padding-right: 10px;
 }

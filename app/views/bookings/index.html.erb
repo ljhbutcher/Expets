@@ -1,6 +1,6 @@
-<div class="container">
+
   <div class="header">
-    <h1> ON-GOING BOOKINGS </h1>
+    <h1><strong> On-going bookings</strong> </h1>
   </div>
 
   <div class="content">
@@ -9,8 +9,10 @@
           <% @bookings.each do |booking| %>
           <div class="individual-booking">
             <div class="pet-info">
-              <strong><%= booking.exotic_pet.name %></strong><br>
-              <%= cl_image_tag(booking.exotic_pet.photo.key,width: 400, height: 300) %><br>
+              <h6><strong><%= link_to booking.exotic_pet.name, booking.exotic_pet %></strong></h6>
+              <div class="booking-img">
+                <%= cl_image_tag(booking.exotic_pet.photo.key,width: 300, height: 200) %><br>
+              </div>
             </div>
             <div class="booking-info">
               <em>Start date:</em> <%= booking.start_date %><br>
@@ -24,4 +26,3 @@
         <ul>
       </div>
   </div>
-</div>
