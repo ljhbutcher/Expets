@@ -26,6 +26,6 @@ class ExoticPetsController < ApplicationController
   private
 
   def exotic_pet_params
-    params.require(:exotic_pet).permit(:name, :age, :description, :image_url)
+    params.require(:exotic_pet).permit(:name,  :age, :description, :image_url, :photo)
   end
 end
