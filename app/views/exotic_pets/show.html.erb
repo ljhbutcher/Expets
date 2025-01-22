@@ -10,7 +10,7 @@
   </div>-->
   <h3><%= @exotic_pet.name.upcase %></h3>
 
-  <%= cl_image_tag(@exotic_pet.photo.key) %>
+  <%= cl_image_tag(@exotic_pet.photo.key,width: 400, height: 400) %>
 
   <div class="details-section">
 
