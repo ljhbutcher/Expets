@@ -11,7 +11,6 @@ header {
   justify-content: space-between;/* Centers items horizontally */
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px black solid;
 }
 
 .container {
@@ -66,9 +65,12 @@ header {
   background-color: #F4F4F4;
   padding: 1rem;
   margin-top: 1rem;
-  border-top: 1px black solid;
 }
 
 .review {
   margin-bottom: 1rem;
+}
+
+.add-review {
+  margin-top: 1rem;
 }

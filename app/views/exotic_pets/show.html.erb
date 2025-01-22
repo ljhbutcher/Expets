@@ -1,6 +1,3 @@
-
-
-<%# LIAMS NEW DESING BELOW %>
 <div class="container">
   <div class="column">
     <body>
@@ -19,13 +16,13 @@
           <h1><%= @exotic_pet.name.upcase %></h1>
           <span class="rating">★★★★★</span>
         </header>
-
+        <hr>
         <section class="description">
           <p><%= @exotic_pet.description %></p>
           <p class="age">Age: <%= @exotic_pet.age %> years</p>
           <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
         </section>
-
+        <hr>
         <section class="reviews">
           <h2>Reviews</h2>
           <div class="review">
@@ -34,7 +31,28 @@
           <div class="review">
             <p>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</p>
           </div>
-        </section>
+          <hr>
+
+          <!-- Add Review Form -->
+  <div class="add-review">
+    <h3>Add a Review</h3>
+    <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
+      <div class="field">
+        <%= form.label :rating %>
+        <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= form.label :comment %>
+        <%= form.text_area :comment, class: "form-control" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit "Submit Review", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
       </div>
       </main>
   </body>
