@@ -8,6 +8,7 @@ class ExoticPetsController < ApplicationController
 
   def show
     @exotic_pet = ExoticPet.find(params[:id])
+    @reviews = @exotic_pet.reviews
   end
 
   def new
