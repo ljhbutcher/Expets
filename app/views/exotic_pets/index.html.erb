@@ -3,10 +3,13 @@
  <div class="cards" >
     <% @exotic_pets.each do |exotic_pet| %>
       <%= link_to exotic_pet_path(exotic_pet) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path exotic_pet.image_url %>')">
-        <h2> <%= exotic_pet.name %></h2>
+      <h6><%= exotic_pet.name %></h6>
+       <%= cl_image_tag(exotic_pet.photo.key,width: 400, height: 400) %>
+
+
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
