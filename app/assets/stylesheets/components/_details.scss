@@ -1,10 +1,10 @@
-body {
+.column body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-header {
+.column header {
   color: rgb(0, 0, 0);
   text-align: center;
   display: flex;
@@ -35,8 +35,6 @@ header {
 
 .description {
   text-align: centre;
-  margin-left: 1rem;
-  margin-top: 1rem;
 }
 
 .rating {
