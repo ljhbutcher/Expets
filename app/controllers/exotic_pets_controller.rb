@@ -7,7 +7,16 @@ class ExoticPetsController < ApplicationController
   end
 
   def show
+
     @exotic_pet = ExoticPet.find(params[:id])
+
+    # The `geocoded` scope filters only pets with coordinates
+    @markers = [
+      {
+        lat: @exotic_pet.latitude,
+        lng: @exotic_pet.longitude
+      }
+    ]
   end
 
   def new
