@@ -7,19 +7,35 @@
     <body>
       <main>
         <section class="image-gallery">
-          <%= cl_image_tag(@exotic_pet.photo.key) %>
-          <br>
-          <%= cl_image_tag(@exotic_pet.photo.key) %>
-          <br>
-          <%= cl_image_tag(@exotic_pet.photo.key) %>
+          <% @exotic_pet.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
         </section>
       </div>
 
       <div class="column">
         <header>
           <h1><%= @exotic_pet.name.upcase %></h1>
+          <h3><%= @exotic_pet.species %></h3>
           <span class="rating">★★★★★</span>
         </header>
+        <hr>
+        <section class="description">
+          <h3><%= @exotic_pet.description %></h3>
+          <h3>Age: <%= @exotic_pet.age %> years</h3>
+          <p>£ <%= @exotic_pet.price %> per hour</p>
+          <br>
+          <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
+        </section>
+        <hr>
+        <section class="reviews">
+          <h2>Reviews</h2>
+          <div class="review">
+            <h3>⭐⭐⭐⭐ - Liam said "Excellent service!"</h3>
+          </div>
+          <div class="review">
+            <h3>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</h3>
+          </div>
           <hr>
 
           <div style="width: 640px; height: 400px;"
@@ -66,6 +82,18 @@
           </div>
       </div>
 
+  <div class="reviews-section">
+    <h3>REVIEWS</h3>
+    <p>Customer reviews</p>
+  </div>
+</div>
+
+<div style="width: 400px; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>"></div>
+      </div>
+      </main>
 
 
     </main>
