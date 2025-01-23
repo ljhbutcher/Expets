@@ -59,6 +59,9 @@ pets.each_with_index do |pet, index|
   end
 
   pet.photos.attach(io: file, filename: "#{pet.name.downcase}_image.jpg", content_type: "image/jpeg")
+  pet.photos.attach(io: file2, filename: "#{pet.name.downcase}_image.jpg", content_type: "image/jpeg")
+  pet.photos.attach(io: file3, filename: "#{pet.name.downcase}_image.jpg", content_type: "image/jpeg")
+  pet.photos.attach(io: file4, filename: "#{pet.name.downcase}_image.jpg", content_type: "image/jpeg")
 end
 
 puts "Creating users ..."
