@@ -20,50 +20,54 @@
           <h1><%= @exotic_pet.name.upcase %></h1>
           <span class="rating">★★★★★</span>
         </header>
-        <hr>
-        <section class="description">
-          <h3><%= @exotic_pet.description %></h3>
-          <h3>Age: <%= @exotic_pet.age %> years</h3>
-          <br>
-          <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
-        </section>
-        <hr>
-        <section class="reviews">
-          <h2>Reviews</h2>
-          <div class="review">
-            <h3>⭐⭐⭐⭐ - Liam said "Excellent service!"</h3>
-          </div>
-          <div class="review">
-            <h3>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</h3>
-          </div>
           <hr>
 
-          <!-- Add Review Form -->
-  <div class="add-review">
-    <h3>Add a Review</h3>
-    <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
-      <div class="field">
-        <%= form.label :rating %>
-        <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
-      </div>
-      <div class="field">
-        <%= form.label :comment %>
-        <%= form.text_area :comment, class: "form-control" %>
-      </div>
-      <br>
-      <div class="actions">
-        <%= form.submit "Submit Review", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-</section>
-</div>
+          <div style="width: 640px; height: 400px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>">
+          </div>
+            <br>
+            <section class="description">
+              <h3><%= @exotic_pet.description %></h3>
+              <h3>Age: <%= @exotic_pet.age %> years</h3>
+              <br>
+              <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
+            </section>
+            <hr>
+          <section class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+              <h3>⭐⭐⭐⭐ - Liam said "Excellent service!"</h3>
+            </div>
+            <div class="review">
+              <h3>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</h3>
+            </div>
+            <hr>
+          </section>
 
-<div style="width: 400px; height: 400px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>"></div>
+          <!-- Add Review Form -->
+          <div class="add-review">
+            <h3>Add a Review</h3>
+            <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
+              <div class="field">
+                <%= form.label :rating %>
+                <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
+              </div>
+              <div class="field">
+                <%= form.label :comment %>
+                <%= form.text_area :comment, class: "form-control" %>
+              </div>
+              <br>
+              <div class="actions">
+                <%= form.submit "Submit Review", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
       </div>
-      </main>
+
+
+
+    </main>
   </body>
 </div>
