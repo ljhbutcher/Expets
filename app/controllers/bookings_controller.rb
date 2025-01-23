@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_exotic_pet, only: [:new, :create]
+  before_action :set_booking, only: [:destroy]
 
   def index
     @bookings = Booking.all
@@ -19,6 +20,11 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path, notice: 'Booking was successfully deleted.'
+  end
+
   private
 
   def set_exotic_pet
@@ -27,5 +33,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :event_details, :contact_email, :contact_phone)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
