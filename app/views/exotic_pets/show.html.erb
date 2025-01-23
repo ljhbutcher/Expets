@@ -21,23 +21,8 @@
           <h1><%= @exotic_pet.name.upcase %></h1>
           <span class="rating"><%= " #{'⭐' * @exotic_pet.ratings}" %></span>
         </header>
+
         <hr>
-        <section class="description">
-          <p><%= @exotic_pet.description %></p>
-          <p class="age">Age: <%= @exotic_pet.age %> years</p>
-          <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
-        </section>
-        <hr>
-        <section class="reviews">
-          <h2>Reviews</h2>
-            <ul class="reviews">
-              <% @exotic_pet.reviews.each do |review| %>
-              <%= " #{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}"  %><br>
-              <% end %>
-            </ul>
-          <hr>
-        </section>
-          <hr>
 
           <div style="width: 640px; height: 400px;"
             data-controller="map"
@@ -52,6 +37,15 @@
               <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
             </section>
             <hr>
+        <section class="reviews">
+          <h2>Reviews</h2>
+            <ul class="reviews">
+              <% @exotic_pet.reviews.each do |review| %>
+              <%= " #{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}"  %><br>
+              <% end %>
+            </ul>
+          <hr>
+</section>
 
           <!-- Add Review Form -->
           <div class="add-review">
