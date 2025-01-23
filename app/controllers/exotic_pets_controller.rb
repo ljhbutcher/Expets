@@ -14,6 +14,9 @@ class ExoticPetsController < ApplicationController
     @exotic_pet = ExoticPet.new
   end
 
+  def geocoded_by
+  end
+
   def create
     @exotic_pet = ExoticPet.new(exotic_pet_params)
     @exotic_pet.user = current_user
