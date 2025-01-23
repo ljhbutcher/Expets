@@ -5,7 +5,7 @@ class ExoticPetsController < ApplicationController
   def index
     @exotic_pets = ExoticPet.all
     if params[:query].present?
-      @exotic_pets = @exotic_pets.where("name ILIKE ?", "%#{params[:query]}%")
+      @exotic_pets = @exotic_pets.where("description ILIKE ?", "%#{params[:query]}%")
     end
   end
 
