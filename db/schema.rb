@@ -67,9 +67,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_23_150901) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
-    t.integer "price_per_day"
     t.string "species"
     t.integer "price"
+    t.integer "price_per_day"
     t.index ["user_id"], name: "index_exotic_pets_on_user_id"
   end
 
