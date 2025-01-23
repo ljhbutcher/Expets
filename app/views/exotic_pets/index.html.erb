@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-=======
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
->>>>>>> master
 <h1>List of Exotic Pets</h1>
 
 <div class="container">
@@ -14,7 +11,7 @@
     <% @exotic_pets.each do |exotic_pet| %>
       <div class="card-trip">
         <%= link_to exotic_pet_path(exotic_pet) do %>
-        <%= cl_image_tag exotic_pet.photo.key, class: "card-trip-img"%>
+        <%= cl_image_tag exotic_pet.photos.first.key, class: "card-trip-img"%>
         <% end %>
 
         <div class="card-trip-infos">
