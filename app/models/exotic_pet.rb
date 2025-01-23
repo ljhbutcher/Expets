@@ -10,4 +10,16 @@ class ExoticPet < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates :image_url, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]) }
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def ratings
+    sum = 0
+      self.reviews.each do |review|
+        sum += review.rating
+      end
+    if sum==0
+      return 0
+    else
+      return sum / self.reviews.size
+    end
+  end
 end
