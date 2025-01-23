@@ -4,15 +4,30 @@ class ExoticPetsController < ApplicationController
 
   def index
     @exotic_pets = ExoticPet.all
+    if params[:query].present?
+      @exotic_pets = @exotic_pets.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
+
     @exotic_pet = ExoticPet.find(params[:id])
+
+    # The `geocoded` scope filters only pets with coordinates
+    @markers = [
+      {
+        lat: @exotic_pet.latitude,
+        lng: @exotic_pet.longitude
+      }
+    ]
     @reviews = @exotic_pet.reviews
   end
 
   def new
     @exotic_pet = ExoticPet.new
+  end
+
+  def geocoded_by
   end
 
   def create
