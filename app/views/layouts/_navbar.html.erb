@@ -10,6 +10,20 @@
     <nav class="l-header__nav">
       <ul class="l-header__ul">
         <% if user_signed_in? %>
+            <div class="container">
+              <div>
+                <div>
+                  <%= form_with url: exotic_pets_path, method: :get, class: "d-flex" do %>
+                    <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control me-2",
+                          placeholder: "Type a keyword",
+                          style: "width: 400px;" %>
+                    <%= submit_tag "Search", name: "", class: "btn btn-primary", style: "width: 100px;" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           <li class="nav-item">
             <%= link_to "My Bookings", "/bookings", class: "nav-link" %>
           </li>
@@ -20,6 +34,20 @@
             <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-alert" %>
           </li>
         <% else %>
+            <div class="container">
+              <div>
+                <div>
+                  <%= form_with url: exotic_pets_path, method: :get, class: "d-flex" do %>
+                    <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control me-2",
+                          placeholder: "Type a keyword",
+                          style: "width: 400px;" %>
+                    <%= submit_tag "Search", name: "", class: "btn btn-primary", style: "width: 100px;" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           <li class="nav-item">
             <%= link_to "All Pets", "/exotic_pets", class: "nav-link" %>
           </li>
