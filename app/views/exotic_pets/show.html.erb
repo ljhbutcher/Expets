@@ -15,10 +15,11 @@
         </section>
       </div>
 
+
       <div class="column">
         <header>
           <h1><%= @exotic_pet.name.upcase %></h1>
-          <span class="rating">★★★★★</span>
+          <span class="rating"><%= " #{'⭐' * @exotic_pet.ratings}" %></span>
         </header>
         <hr>
         <section class="description">
@@ -29,14 +30,19 @@
         <hr>
         <section class="reviews">
           <h2>Reviews</h2>
-          <div class="review">
+          <%# <div class="review">
             <p>⭐⭐⭐⭐ - Liam said "Excellent service!"</p>
           </div>
           <div class="review">
             <p>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</p>
           </div>
+          <hr> %>
+            <ul class="reviews">
+              <% @exotic_pet.reviews.each do |review| %>
+              <%= " #{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}"  %><br>
+              <% end %>
+            </ul>
           <hr>
-
           <!-- Add Review Form -->
   <div class="add-review">
     <h3>Add a Review</h3>
