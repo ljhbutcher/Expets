@@ -14,11 +14,9 @@ Rails.application.routes.draw do
   # delete '/logout', to: 'sessions#destroy', as: :logout
 
   resources :exotic_pets, only: [:index, :show, :new, :create ] do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :index, :destroy]
     resources :reviews, only: [:create]
   end
 
-  resources :bookings, only: [:index]
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :bookings, only: [:index, :destroy]
 end
