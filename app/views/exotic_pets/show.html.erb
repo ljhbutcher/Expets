@@ -19,7 +19,7 @@
       <div class="column">
         <header>
           <h1><%= @exotic_pet.name.upcase %></h1>
-          <span class="rating"><%= " #{'⭐' * @exotic_pet.ratings}" %></span>
+          <span class="rating"><%= @exotic_pet.ratings > 0 ? " #{'⭐' * @exotic_pet.ratings}" : "🌞"%></span>
         </header>
 
         <hr>

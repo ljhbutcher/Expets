@@ -16,6 +16,10 @@ class ExoticPet < ApplicationRecord
       self.reviews.each do |review|
         sum += review.rating
       end
-    return sum / self.reviews.size
+    if sum==0
+      return 0
+    else
+      return sum / self.reviews.size
+    end
   end
 end
