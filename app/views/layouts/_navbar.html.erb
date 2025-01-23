@@ -1,29 +1,53 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://static.vecteezy.com/system/resources/previews/007/922/997/non_2x/colorful-chameleon-logo-design-illustration-free-vector.jpg" %>
-    <% end %>
+<div class="l-header">
+  <div class="l-header__inner">
+    <div class="l-header__brand">
+      <%= link_to root_path, class: "l-header__link" do %>
+        <%= image_tag "logo.png", class: "l-header__logo", alt: "Exotic Pets Logo" %>
+        <span class="l-header__title">Exotic Pets</span>
+      <% end %>
+    </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <nav class="l-header__nav">
+      <ul class="l-header__ul">
         <% if user_signed_in? %>
+            <div class="container">
+              <div>
+                <div>
+                  <%= form_with url: exotic_pets_path, method: :get, class: "d-flex" do %>
+                    <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control me-2",
+                          placeholder: "Type any animal",
+                          style: "width: 400px;" %>
+                    <%= submit_tag "Search", name: "", class: "btn btn-primary", style: "width: 100px;" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           <li class="nav-item">
             <%= link_to "My Bookings", "/bookings", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "All Pets", "/exotic_pets", class: "nav-link" %>
           </li>
-          <li class="nav-item d-flex align-items-center btn btn-alert" id="button">
-            <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://avatars.githubusercontent.com/u/187302196?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <li class="nav-item">
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-alert" %>
           </li>
         <% else %>
+            <div class="container">
+              <div>
+                <div>
+                  <%= form_with url: exotic_pets_path, method: :get, class: "d-flex" do %>
+                    <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control me-2",
+                          placeholder: "Type any animal",
+                          style: "width: 400px;" %>
+                    <%= submit_tag "Search", name: "", class: "btn btn-primary", style: "width: 100px;" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           <li class="nav-item">
             <%= link_to "All Pets", "/exotic_pets", class: "nav-link" %>
           </li>
@@ -35,6 +59,12 @@
           </li>
         <% end %>
       </ul>
-    </div>
+    </nav>
+
+    <% if user_signed_in? %>
+      <div class="l-header__avatar">
+        <%= image_tag "https://avatars.githubusercontent.com/u/187302196?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, alt: "Profile Picture" %>
+      </div>
+    <% end %>
   </div>
 </div>

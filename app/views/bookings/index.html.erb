@@ -1,1 +1,32 @@
-<h1> test </h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="header">
+    <h1><strong>My Bookings</strong> </h1>
+  </div>
+
+  <div class="content">
+      <div class="booking-info-pet">
+        <ul>
+          <% @bookings.each do |booking| %>
+          <div class="individual-booking">
+            <div class="pet-info">
+              <h6><strong><%= link_to booking.exotic_pet.name, booking.exotic_pet %></strong></h6>
+              <div class="booking-img">
+                <%= cl_image_tag(booking.exotic_pet.photo.key,width: 300, height: 200) %><br>
+              </div>
+            </div>
+            <div class="booking-info">
+              <em>Start date:</em> <%= booking.start_date %><br>
+              <em>End date:</em> <%= booking.end_date %><br>
+              <em>Event details:</em> <%= booking.event_details %><br>
+              <em>Contact email:</em> <%= booking.contact_email %><br>
+              <em>Contact Number:</em> <%= booking.contact_phone %><br><br>
+              <%= button_to "Delete Booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?", turbo: false }, class: "btn btn-danger mt-2" %>
+            </div>
+          </div>
+          <% end %>
+        <ul>
+      </div>
+  </div>

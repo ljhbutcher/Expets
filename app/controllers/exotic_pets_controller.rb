@@ -4,6 +4,9 @@ class ExoticPetsController < ApplicationController
 
   def index
     @exotic_pets = ExoticPet.all
+    if params[:query].present?
+      @exotic_pets = @exotic_pets.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
@@ -17,6 +20,7 @@ class ExoticPetsController < ApplicationController
         lng: @exotic_pet.longitude
       }
     ]
+    @reviews = @exotic_pet.reviews
   end
 
   def new

@@ -1,27 +1,63 @@
+<br>
+<br>
+<br>
+<br>
 <div class="container">
-  <!--<div class="image-section">
-    <div class="main-image">
-      <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %>" />
-    </div>
-    <div class="additional-images">
-      <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %> Image 1" />
-      <img src="<%= @exotic_pet.image_url %>" alt="<%= @exotic_pet.name %> Image 2" />
-    </div>
-  </div>-->
-  <h3><%= @exotic_pet.name.upcase %></h3>
+  <div class="column">
+    <body>
+      <main>
+        <section class="image-gallery">
+          <%= cl_image_tag(@exotic_pet.photo.key) %>
+          <br>
+          <%= cl_image_tag(@exotic_pet.photo.key) %>
+          <br>
+          <%= cl_image_tag(@exotic_pet.photo.key) %>
+        </section>
+      </div>
 
-  <%= cl_image_tag(@exotic_pet.photo.key,width: 400, height: 400) %>
+      <div class="column">
+        <header>
+          <h1><%= @exotic_pet.name.upcase %></h1>
+          <span class="rating">★★★★★</span>
+        </header>
+        <hr>
+        <section class="description">
+          <p><%= @exotic_pet.description %></p>
+          <p class="age">Age: <%= @exotic_pet.age %> years</p>
+          <%= link_to "BOOK", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
+        </section>
+        <hr>
+        <section class="reviews">
+          <h2>Reviews</h2>
+          <div class="review">
+            <p>⭐⭐⭐⭐ - Liam said "Excellent service!"</p>
+          </div>
+          <div class="review">
+            <p>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</p>
+          </div>
+          <hr>
 
-  <div class="details-section">
-
-    <p class="rating">★★★★★</p>
-    <p class="description">
-      <%= @exotic_pet.description %>
-    </p>
-    <p class="age">Age: <%= @exotic_pet.age %> years</p>
-    <button class="book-button">BOOK</button>
+          <!-- Add Review Form -->
+  <div class="add-review">
+    <h3>Add a Review</h3>
+    <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
+      <div class="field">
+        <%= form.label :rating %>
+        <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= form.label :comment %>
+        <%= form.text_area :comment, class: "form-control" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit "Submit Review", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
+</section>
 
+<<<<<<< HEAD
   <div class="reviews-section">
     <h3>REVIEWS</h3>
     <p>Customer reviews</p>
@@ -32,3 +68,9 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>"></div>
+=======
+      </div>
+      </main>
+  </body>
+</div>
+>>>>>>> master

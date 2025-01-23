@@ -1,5 +1,4 @@
 .cards {
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -9,6 +8,10 @@
 
 .container {
   margin: auto;
+}
+
+h1 {
+  margin-left: 100px;
 }
 
 .card-category {
