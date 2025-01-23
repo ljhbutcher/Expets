@@ -1,5 +1,5 @@
 .image-container {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -16,9 +16,9 @@
 
   .overlay-text {
     position: absolute;
-    bottom: 10px; /* Place the text at the bottom of the screen */
-    top: 75%;
-    transform: translateX(-50%); /* Center horizontally */
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     color: white;
     font-size: 2.5rem;
@@ -33,6 +33,7 @@
     p {
       font-size: 1.5rem;
       font-family: 'GT Walsheim Condensed Regular', sans-serif;
+      margin: 0;
     }
   }
 }

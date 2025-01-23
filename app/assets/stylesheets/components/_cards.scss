@@ -1,67 +1,157 @@
-.cards {
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-
-.container {
-  margin: auto;
-}
-
-.card-category {
-  background-size: contain;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-trip {
-  // width: 500px;
-  // margin: 50px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-.card-trip-img {
-  height: 250px;
+.image-container {
+  position: fixed;
   width: 100%;
-  object-fit: cover;
+  height: 100vh;
+  overflow: hidden;
+
+  .full-page-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+  }
 }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.content-container {
   position: relative;
-}
+  padding: 16vh 5% 8vh 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  .overlay-text {
+    text-align: left;
+    margin-bottom: 3vh;
+    width: 90%;
+    max-width: 1500px;
+
+    h1 {
+      font-family: 'GT Walsheim Condensed Medium', sans-serif;
+      font-size: 3rem;
+      color: white;
+    }
+
+    p {
+      font-family: 'GT Walsheim Condensed Regular', sans-serif;
+      font-size: 1.5rem;
+      color: white;
+    }
+  }
+
+  .pets-container {
+    width: 90%;
+    max-width: 1500px;
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 30px;
+
+      @media (max-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-trip {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.035);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .card-trip {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column; // Ensure vertical layout
+      justify-content: space-between;
+
+      &:hover {
+        transform: scale(1.035);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-trip-img-wrapper {
+        height: 250px;
+        width: 100%;
+
+        .card-trip-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      .card-trip-infos {
+        padding: 20px;
+        font-family: 'GT Walsheim Condensed Regular', sans-serif;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-recipe-description {
+        h2 {
+          font-family: 'GT Walsheim Condensed Medium', sans-serif;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        p {
+          color: #666;
+          line-height: 1.5;
+        }
+      }
+
+      .price-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'GT Walsheim Condensed Regular', sans-serif;
+        font-weight: 100;
+        font-size: 1rem;
+        padding: 0.2rem;
+        border: 1px solid #666;
+        color: #666;
+        background-color: transparent;
+        letter-spacing: 0.1em;
+        border-radius: 0;
+        cursor: pointer;
+        align-self: center;
+        transition: all 0.5s ease;
+        width: 100%;
+
+        &:hover {
+          color: #333;
+          border-color: #333;
+        }
+      }
+
+      .price-btn-link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        color: inherit;
+      }
+    }
+  }
 }

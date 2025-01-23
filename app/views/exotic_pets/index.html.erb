@@ -1,20 +1,33 @@
+<div class="image-container">
+  <%= image_tag("https://cdn.midjourney.com/2698ef4a-57a5-41c2-a04c-377d53ec533a/0_1.png", class: "full-page-image", alt: "Exotic Pets Background") %>
+</div>
 
-<div class="container">
-  <h1>List of Exotic Pets</h1>
-  <div class="cards">
-    <% @exotic_pets.each do |exotic_pet| %>
-      <div class="card-trip">
-        <%= link_to exotic_pet_path(exotic_pet) do %>
-        <%= cl_image_tag exotic_pet.photo.key, class: "card-trip-img"%>
-        <% end %>
+<div class="content-container">
+  <div class="overlay-text">
+    <h1>Our Exotic Pets Collection</h1>
+    <p>Discover unique companions waiting for their next adventure</p>
+  </div>
 
-        <div class="card-trip-infos">
-          <div class= "card-recipe-description">
-            <h2><%= exotic_pet.name %></h2>
-            <p><%= exotic_pet.description %></p>
-          </div>
+  <div class="pets-container">
+    <div class="cards">
+      <% @exotic_pets.each do |exotic_pet| %>
+        <div class="card-trip">
+          <%= link_to exotic_pet_path(exotic_pet), class: "price-btn-link" do %>
+            <div class="card-trip-img-wrapper">
+              <%= cl_image_tag exotic_pet.photo.key, class: "card-trip-img"%>
+            </div>
+
+            <div class="card-trip-infos">
+              <div class="card-recipe-description">
+                <h2><%= exotic_pet.name %></h2>
+                <p><%= exotic_pet.description %></p>
+              </div>
+
+              <button class="price-btn">£<%= exotic_pet.price_per_day %> per day</button>
+            </div>
+          <% end %>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
