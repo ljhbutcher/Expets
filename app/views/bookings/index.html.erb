@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-<br>
-<br>
-<br>
-<br>
-=======
   <br>
   <br>
   <br>
   <br>
->>>>>>> master
   <div class="header">
     <h1><strong>My Bookings</strong> </h1>
   </div>
@@ -21,7 +14,7 @@
             <div class="pet-info">
               <h6><strong><%= link_to booking.exotic_pet.name, booking.exotic_pet %></strong></h6>
               <div class="booking-img">
-                <%= cl_image_tag(booking.exotic_pet.photo.key,width: 300, height: 200) %><br>
+                <%= cl_image_tag(booking.exotic_pet.photos.first.key,width: 300, height: 200) %><br>
               </div>
             </div>
             <div class="booking-info">
