@@ -9,18 +9,19 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @exotic_pet = ExoticPet.find(params[:exotic_pet_id])
     @review = Review.new
   end
 
   def create
     @exotic_pet = ExoticPet.find(params[:exotic_pet_id]) # Ensure the correct ExoticPet is fetched
-    @review = @exotic_pet.reviews.build(review_params)
-
+    @review = Review.new(review_params)
+    @review.exotic_pet = @exotic_pet
+    @review.user = current_user
     if @review.save
-      redirect_to @exotic_pet, notice: "Review added successfully!"
+      redirect_to exotic_pet_path(@exotic_pet), notice: "Review added successfully!"
     else
-      flash.now[:alert] = "There was an error adding your review."
-      render "exotic_pets/show" # Render the same page with validation errors
+      render "exotic_pets/show", alert: "There was an error adding your review." # Render the same page with validation errors
     end
   end
 

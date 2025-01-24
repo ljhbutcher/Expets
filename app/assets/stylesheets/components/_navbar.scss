@@ -98,4 +98,52 @@
       }
     }
   }
+
+  .search-bar-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-bar-wrapper {
+      position: relative;
+      width: 250px;
+
+      .search-input {
+        padding: 0.3rem 2.5rem 0.3rem 1rem;
+        font-size: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        background-color: transparent;
+        color: #fff;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+
+        &:focus {
+          border-color: rgba(255, 255, 255, 1);
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.152);
+        }
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.6);
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+  }
 }

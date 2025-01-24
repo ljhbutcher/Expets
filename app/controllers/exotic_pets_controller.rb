@@ -39,6 +39,14 @@ class ExoticPetsController < ApplicationController
     end
   end
 
+  def ratings
+    sum = 0
+      @exoting_pet.reviews.ratings.each do |rating|
+        sum += rating.value
+      end
+    return sum / ratings.size
+  end
+
   private
 
   def exotic_pet_params
