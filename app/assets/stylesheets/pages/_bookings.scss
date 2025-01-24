@@ -1,25 +1,118 @@
-.header {
-  margin: 25px;
-  text-align: center;
+$image-hover-lightness: 1.2; /* Hover lightness multiplier */
+
+.image-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+
+  .full-page-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+  }
 }
 
-.individual-booking {
-  background-color: whitesmoke;
-  margin: 30px;
-  border: 2px solid black;
-  padding: 10px;
-  display: flex;
-  text-align: left;
-}
+.bookings-container {
+  position: relative;
+  padding: 7% 10% 3% 10%;
+  z-index: 10;
 
-.pet-info{
-  border-right: 2px solid black;
-}
+  .header {
+    font-family: 'GT Walsheim Condensed Medium', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 20px;
+  }
 
-.booking-info {
- padding: 25px 10px;
-}
+  .bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-.booking-img {
-  padding-right: 10px;
+  .booking-card {
+    position: relative;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, filter 0.3s ease;
+    height: 300px;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .booking-card-left {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.05);
+
+      .booking-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.7);
+        transition: filter 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+          filter: brightness($image-hover-lightness);
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .booking-card-right {
+      flex: 2;
+      padding: 20px;
+      font-family: 'GT Walsheim Condensed Regular', sans-serif;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 0 10px 10px 0;
+
+      .pet-name {
+        font-size: 1.5rem;
+        color: #00c100;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #00d700;
+          text-decoration: underline;
+        }
+      }
+
+      p {
+        margin: 10px 0;
+        color: #333;
+      }
+
+      .btn-delete {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 2vh;
+        background-color: #ff4d4f;
+        color: #fff;
+        text-align: center;
+        border: none;
+        border-radius: 60px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #ff7875;
+        }
+      }
+    }
+  }
 }
