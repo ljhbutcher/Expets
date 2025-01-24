@@ -1,23 +1,24 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br><br><br><br>
+<div class="image-container">
+  <%= image_tag("https://cdn.midjourney.com/2698ef4a-57a5-41c2-a04c-377d53ec533a/0_1.png", class: "full-page-image", alt: "Exotic Pets Background") %>
+</div>
 
-<div class="centered-container">
-  <div class="card">
+<div class="form-container">
+  <div class="form-card">
     <h2>Log in</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control" }, label: "Email" %>
         <%= f.input :password, required: true, input_html: { autocomplete: "current-password", class: "form-control" }, label: "Password" %>
+      </div>
+      <div class="form-checkbox-container">
         <%= f.input :remember_me, as: :boolean, label: "Remember me", input_html: { class: "form-checkbox" } if devise_mapping.rememberable? %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Log in", class: "btn-submit" %>
       </div>
     <% end %>
-    <%= render "devise/shared/links" %>
+    <div class="additional-links">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>

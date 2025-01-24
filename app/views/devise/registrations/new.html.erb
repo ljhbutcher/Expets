@@ -1,38 +1,23 @@
-<div class="container_signup">
-  <div class="row">
-    <!-- Left Column: Form Section -->
-    <div class="col-md-6">
-      <div class="card_signup">
-        <div class="card_content">
-          <h2>Sign up</h2>
+<div class="image-container">
+  <%= image_tag("https://cdn.midjourney.com/2698ef4a-57a5-41c2-a04c-377d53ec533a/0_1.png", class: "full-page-image", alt: "Sign Up Background") %>
+</div>
 
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.error_notification %>
+<div class="form-container">
+  <div class="form-card">
+    <h2>Sign up</h2>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-            <div class="form-inputs">
-              <%= f.input :username, required: true, autofocus: true, input_html: { autocomplete: "username", class: "form-control" } %>
-              <%= f.input :email, required: true, input_html: { autocomplete: "email", class: "form-control" } %>
-              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: "form-control" } %>
-              <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: "form-control" } %>
-            </div>
-
-            <div class="form-actions">
-              <%= f.button :submit, "Sign up", class: "btn-submit" %>
-            </div>
-          <% end %>
-        </div>
+      <div class="form-inputs">
+        <%= f.input :username, required: true, autofocus: true, input_html: { autocomplete: "username", class: "form-control" }, label: "Username" %>
+        <%= f.input :email, required: true, input_html: { autocomplete: "email", class: "form-control" }, label: "Email" %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: "form-control" }, label: "Password" %>
+        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: "form-control" }, label: "Confirm Password" %>
       </div>
-    </div>
 
-    <!-- Right Column: Additional Information -->
-    <div class="col-md-6">
-      <div class="info-section">
-        <h3>Don't have an account?</h3>
-        <p>Creating an account is quick and easy - head over to our registration form <%=link_to "Sign up", new_user_registration_path %> to create your account.</p>
-
-        <h3>Forgotten your password?</h3>
-        <p>Can't remember your password? Click here <%=link_to "Forget your Password", edit_user_password_path  %> to get a password reminder.</p>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: "btn-submit" %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

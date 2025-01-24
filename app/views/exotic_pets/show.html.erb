@@ -1,71 +1,74 @@
-<div class="show-container">
+<div class="image-container">
+  <%= image_tag("https://cdn.midjourney.com/2698ef4a-57a5-41c2-a04c-377d53ec533a/0_1.png", class: "full-page-image", alt: "Background") %>
+</div>
 
-      <div class="column">
-        <section class="image-gallery">
-          <% @exotic_pet.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
-          <% end %>
-        </section>
-      </div>
+<div class="details-container">
+  <div class="show-container">
+    <!-- Left Column: Images -->
+    <div class="column image-column">
+      <section class="image-gallery">
+        <% @exotic_pet.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, crop: :fill, class: "gallery-image" %>
+        <% end %>
+      </section>
+    </div>
 
-      <div class="column">
+    <!-- Right Column: Details -->
+    <div class="column details-column">
+      <div class="content-card">
         <header>
           <h1><%= @exotic_pet.name.upcase %></h1>
-          <span class="rating"><%= @exotic_pet.ratings > 0 ? " #{'⭐' * @exotic_pet.ratings}" : "🌞"%></span>
+          <span class="rating"><%= @exotic_pet.ratings > 0 ? "#{'⭐' * @exotic_pet.ratings}" : "🌞" %></span>
         </header>
 
         <hr>
 
-        <div style="width: 640px; height: 400px;"
+        <div class="map-container"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>">
         </div>
 
-            <br>
+        <hr>
 
         <section class="description">
           <h3><%= @exotic_pet.description %></h3>
           <h3>Age: <%= @exotic_pet.age %> years</h3>
-
           <br>
-
-          <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "price-btn" %>
+          <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
         </section>
 
-            <hr>
+        <hr>
 
-          <section class="reviews">
+        <section class="reviews">
           <h2>Reviews</h2>
-            <ul class="reviews">
-              <% @exotic_pet.reviews.each do |review| %>
-              <%= " #{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}"  %><br>
-              <% end %>
-            </ul>
-
-          <hr>
-
-          </section>
-
-          <!-- Add Review Form -->
-          <div class="add-review">
-
-            <h3>Add a Review</h3>
-            <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
-              <div class="field">
-                <%= form.label :rating %>
-                <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
-              </div>
-              <div class="field">
-                <%= form.label :comment %>
-                <%= form.text_area :comment, class: "form-control" %>
-              </div>
-              <br>
-              <div class="actions">
-                <%= form.submit "Submit Review", class: "price-btn" %>
-              </div>
+          <ul class="reviews-list">
+            <% @exotic_pet.reviews.each do |review| %>
+              <li>
+                <%= "#{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}" %>
+              </li>
             <% end %>
-          </div>
-      </div>
+          </ul>
+        </section>
 
+        <div class="add-review">
+          <h3>Add a Review</h3>
+          <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
+            <div class="field">
+              <%= form.label :rating %>
+              <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
+            </div>
+            <div class="field">
+              <%= form.label :comment %>
+              <%= form.text_area :comment, class: "form-control" %>
+            </div>
+            <br>
+            <div class="actions">
+              <%= form.submit "Submit Review", class: "submit-review-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
