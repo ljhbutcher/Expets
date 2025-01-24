@@ -1,108 +1,74 @@
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="column">
-    <body>
-      <main>
-        <section class="image-gallery">
-          <% @exotic_pet.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-        </section>
-      </div>
+<div class="image-container">
+  <%= image_tag("https://cdn.midjourney.com/2698ef4a-57a5-41c2-a04c-377d53ec533a/0_1.png", class: "full-page-image", alt: "Background") %>
+</div>
 
+<div class="details-container">
+  <div class="show-container">
+    <!-- Left Column: Images -->
+    <div class="column image-column">
+      <section class="image-gallery">
+        <% @exotic_pet.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, crop: :fill, class: "gallery-image" %>
+        <% end %>
+      </section>
+    </div>
 
-      <div class="column">
+    <!-- Right Column: Details -->
+    <div class="column details-column">
+      <div class="content-card">
         <header>
           <h1><%= @exotic_pet.name.upcase %></h1>
-<<<<<<< HEAD
-          <span class="rating"><%= @exotic_pet.ratings > 0 ? " #{'⭐' * @exotic_pet.ratings}" : "🌞"%></span>
+          <span class="rating"><%= @exotic_pet.ratings > 0 ? "#{'⭐' * @exotic_pet.ratings}" : "🌞" %></span>
         </header>
 
         <hr>
-=======
-          <h3><%= @exotic_pet.species %></h3>
-          <span class="rating">★★★★★</span>
-        </header>
+
+        <div class="map-container"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>">
+        </div>
+
         <hr>
+
         <section class="description">
           <h3><%= @exotic_pet.description %></h3>
           <h3>Age: <%= @exotic_pet.age %> years</h3>
-          <p>£ <%= @exotic_pet.price %> per hour</p>
           <br>
           <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
         </section>
+
         <hr>
+
         <section class="reviews">
           <h2>Reviews</h2>
-          <div class="review">
-            <h3>⭐⭐⭐⭐ - Liam said "Excellent service!"</h3>
-          </div>
-          <div class="review">
-            <h3>⭐⭐⭐⭐⭐ - Sapana said "Absolutely breathtaking!"</h3>
-          </div>
-          <hr>
->>>>>>> 668ed94eec96090cb654dc8fefa34e79382fecf6
-
-          <div style="width: 640px; height: 400px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>">
-          </div>
-            <br>
-            <section class="description">
-              <h3><%= @exotic_pet.description %></h3>
-              <h3>Age: <%= @exotic_pet.age %> years</h3>
-              <br>
-              <%= link_to "Book", new_exotic_pet_booking_path(@exotic_pet), class: "book-btn" %>
-            </section>
-            <hr>
-        <section class="reviews">
-          <h2>Reviews</h2>
-            <ul class="reviews">
-              <% @exotic_pet.reviews.each do |review| %>
-              <%= " #{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}"  %><br>
-              <% end %>
-            </ul>
-          <hr>
-</section>
-
-          <!-- Add Review Form -->
-          <div class="add-review">
-            <h3>Add a Review</h3>
-            <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
-              <div class="field">
-                <%= form.label :rating %>
-                <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
-              </div>
-              <div class="field">
-                <%= form.label :comment %>
-                <%= form.text_area :comment, class: "form-control" %>
-              </div>
-              <br>
-              <div class="actions">
-                <%= form.submit "Submit Review", class: "btn btn-primary" %>
-              </div>
+          <ul class="reviews-list">
+            <% @exotic_pet.reviews.each do |review| %>
+              <li>
+                <%= "#{review.user.username} said '#{review.comment}' | #{'⭐️' * review.rating}" %>
+              </li>
             <% end %>
-          </div>
-      </div>
+          </ul>
+        </section>
 
-  <div class="reviews-section">
-    <h3>REVIEWS</h3>
-    <p>Customer reviews</p>
+        <div class="add-review">
+          <h3>Add a Review</h3>
+          <%= form_with(model: [@exotic_pet, @exotic_pet.reviews.build], local: true) do |form| %>
+            <div class="field">
+              <%= form.label :rating %>
+              <%= form.select :rating, options_for_select(1..5), {}, class: "form-control" %>
+            </div>
+            <div class="field">
+              <%= form.label :comment %>
+              <%= form.text_area :comment, class: "form-control" %>
+            </div>
+            <br>
+            <div class="actions">
+              <%= form.submit "Submit Review", class: "submit-review-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<div style="width: 400px; height: 400px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAP_BOX_API_KEY'] %>"></div>
-      </div>
-      </main>
-
-
-    </main>
-  </body>
 </div>

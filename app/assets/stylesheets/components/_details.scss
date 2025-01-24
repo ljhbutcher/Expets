@@ -1,75 +1,187 @@
-.column body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+$image-size: 400px;
+$image-hover-lightness: 1;
 
-.column header {
-  color: rgb(0, 0, 0);
-  text-align: center;
-  display: flex;
-  justify-content: space-between;/* Centers items horizontally */
-  align-items: center;
-  padding: 1rem;
-}
-
-.container {
-  display: flex;
-  gap: 1rem; /* Adds spacing between columns */
-}
-
-.column {
-  flex: 1; /* Each column takes up equal space */
-}
-
-.image-gallery {
-  display: flex;
-  margin: 1rem 0;
-  flex-direction: column;
-}
-
-.image-gallery img {
+.image-container {
+  position: fixed;
   width: 100%;
-  border-radius: 8px;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+
+  .full-page-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
-.description {
-  text-align: centre;
-}
+.details-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 9% 10% 5% 0%;
 
-.rating {
-  text-align: centre;
-  margin-left: 1rem;
-  color: gold;
-  font-size: 50px;
-}
+  .show-container {
+    display: flex;
+    width: 100%;
+  }
 
-.book-btn {
-  background-color: red;
-  width: 20px;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 20px;
-}
+  .column {
+    flex: 1;
 
-.book-btn:hover {
-  background-color: darkred;
-}
+    &.image-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-.reviews {
-  background-color: #F4F4F4;
-  padding: 1rem;
-  margin-top: 1rem;
-}
+      .image-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
 
-.review {
-  margin-bottom: 1rem;
-}
+        .gallery-image {
+          width: $image-size;
+          height: $image-size;
+          border-radius: 10px;
+          object-fit: cover;
+          filter: brightness(0.7);
+          transition: filter 0.3s ease, transform 0.3s ease;
 
-.add-review {
-  margin-top: 1rem;
+          &:hover {
+            filter: brightness($image-hover-lightness);
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
+
+    &.details-column {
+      .content-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px 20px 29px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+      }
+
+      header {
+        text-align: center;
+
+        h1 {
+          font-family: 'GT Walsheim Condensed Medium', sans-serif;
+          font-size: 2.5rem;
+          color: #333;
+        }
+
+        .rating {
+          color: gold;
+          font-size: 1.5rem;
+        }
+      }
+
+      .map-container {
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #333;
+      }
+
+      .description {
+        h3 {
+          font-family: 'GT Walsheim Condensed Regular', sans-serif;
+          font-size: 1.2rem;
+          color: #333;
+          text-align: center;
+        }
+
+        .book-btn {
+          width: 100%;
+          padding: 0.45rem 19.5rem;
+          background-color: #00c100;
+          color: white;
+          border: none;
+          border-radius: 60px;
+          font-family: 'GT Walsheim Condensed Regular', sans-serif;
+          font-size: 1.2rem;
+          text-align: center;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          text-decoration: none;
+
+          &:hover {
+            background-color: #00d700;
+          }
+        }
+      }
+
+      .reviews {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 1rem;
+
+        h2 {
+          font-family: 'GT Walsheim Condensed Medium', sans-serif;
+          font-size: 1.5rem;
+          color: #333;
+          margin-bottom: 1rem;
+        }
+
+        .reviews-list {
+          list-style: none;
+          padding: 0;
+
+          li {
+            font-family: 'GT Walsheim Condensed Regular', sans-serif;
+            color: #333;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      .add-review {
+        .form-control {
+          width: 100%;
+          padding: 0.3rem 2.5rem;
+          border: 1px solid #adb5bd;
+          border-radius: 60px;
+          background-color: transparent;
+          font-family: 'GT Walsheim Condensed Regular', sans-serif;
+          font-size: 1rem;
+          color: #333;
+          transition: border-color 0.3s ease, background-color 0.3s ease;
+          margin-bottom: 1rem;
+
+          &:focus,
+          &:active {
+            border-color: #20b68d;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+          }
+
+          &::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+          }
+        }
+
+        .submit-review-btn {
+          width: 100%;
+          padding: 0.3rem 2.5rem;
+          background-color: #00c100;
+          color: #ffffff;
+          border: none;
+          border-radius: 60px;
+          font-family: 'GT Walsheim Condensed Regular', sans-serif;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #00d700;
+          }
+        }
+      }
+    }
+  }
 }
