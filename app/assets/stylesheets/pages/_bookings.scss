@@ -63,11 +63,6 @@ $image-hover-lightness: 1.2; /* Hover lightness multiplier */
         object-fit: cover;
         filter: brightness(0.7);
         transition: filter 0.3s ease, transform 0.3s ease;
-
-        &:hover {
-          filter: brightness($image-hover-lightness);
-          transform: scale(1.1);
-        }
       }
     }
 
